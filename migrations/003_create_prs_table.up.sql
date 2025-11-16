@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS prs (
+    id UUID PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    author_id UUID,
+    status VARCHAR(20) NOT NULL,
+
+    created_at TIMESTAMP WITH TIME ZONE,
+    merged_at TIMESTAMP WITH TIME ZONE,
+
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL
+);

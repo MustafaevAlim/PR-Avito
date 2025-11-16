@@ -1,0 +1,65 @@
+version: "2"
+
+run:
+  timeout: 5m
+  tests: false
+  skip-dirs:
+    - vendor
+    - internal/mocks
+  go: '1.23'
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+
+linters:
+  default: standard
+  enable:
+    - errcheck
+    - staticcheck
+    - govet
+    - ineffassign
+    - gocyclo
+    - gocognit
+    - funlen
+    - errname
+    - gosec
+    - bodyclose
+    - prealloc
+    - unconvert
+    - dupl
+    - misspell
+
+  exclusions:
+    rules:
+      - path: 'internal/service/pr/update\.go$'
+        linters:
+          - gosec
+      - path: '_test\.go$'
+        linters:
+          - funlen
+          - dupl
+          - gosec
+          - gocyclo
+      - path: '^internal/mocks/'
+        linters:
+          - all
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+  staticcheck:
+    checks:
+      - all
+      - "-SA1019"
+  govet:
+    enable-all: true
+  gocyclo:
+    min-complexity: 15
+  gocognit:
+    min-complexity: 20
+  funlen:
+    lines: 100
+    statements: 50
+

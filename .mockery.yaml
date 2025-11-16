@@ -1,0 +1,37 @@
+all: false
+dir: './internal'
+filename: "mocks/{{.InterfaceName}}_mock.go"
+force-file-write: true
+formatter: goimports
+include-auto-generated: false
+log-level: info
+structname: '{{.Mock}}{{.InterfaceName}}'
+recursive: false
+require-template-schema-exists: true
+
+packages:
+  PR/internal/service:
+    config:
+      all: false
+      pkgname: 'mocks'
+    interfaces:
+      UserService:
+      TeamService:
+      PullRequestService:
+      StatisticsService:
+  PR/internal/repository:
+    config:
+      all: false
+      pkgname: 'mocks'
+    interfaces:
+      UserRepository:
+      TeamRepository:
+      PullRequestRepository:
+      StatisticsRepository:
+
+  PR/internal/client/db:
+    config:
+      all: false
+      pkgname: 'mocks'
+    interfaces:
+      TxManager:

@@ -15,12 +15,13 @@
         make run
 4. **Выполнить миграции базы(требуется утилита migrate):**
 
+        go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
         make migrate-up
     Требуется уже запущенная бд.
 
 ## Запуск в Docker
 1. **Создать .env**  
-   Создать файл `.env` по `.env.example`
+   Создать файл `.env` по `.env.example`. (важно указать в POSTGRES_HOST имя контейнера)
 2. **Запустить сервисы:**
 
         sudo docker-compose up --build -d

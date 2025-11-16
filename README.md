@@ -21,7 +21,7 @@
 
 ## Запуск в Docker
 1. **Создать .env**  
-   Создать файл `.env` по `.env.example`. (важно указать в POSTGRES_HOST имя контейнера)
+   Создать файл `.env` по `.env.example`. (важно указать в POSTGRES_HOST имя контейнера c бд)
 2. **Запустить сервисы:**
 
         sudo docker-compose up --build -d

@@ -9,3 +9,6 @@ CREATE TABLE IF NOT EXISTS prs (
 
     FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL
 );
+
+
+CREATE INDEX idx_prs_author_id ON prs(author_id);

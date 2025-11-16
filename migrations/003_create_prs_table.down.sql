@@ -1,1 +1,4 @@
 DROP TABLE IF EXISTS prs;
+
+
+DROP INDEX IF EXISTS idx_prs_author_id;
